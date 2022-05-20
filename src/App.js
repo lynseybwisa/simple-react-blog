@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from './components/Navbar/Navbar';
+import Home from './components/Landing Page/Home';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React from 'react';
+import Create from './components/Blog/Create';
 
 function App() {
+
+  // const title = 'Welcome to the new blog';
+  // const likes = 50;
+  // const link = "https://www.google.com";
+  
+
   return (
+    <Router>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+     <div className="content">
+       {/* <Home /> */}
+       <Switch>
+         <Route path="/">
+           <Home />
+         </Route>
+         <Route path="/create">
+           <Create />
+         </Route>
+       </Switch>
+       {/* <h1> { title }</h1>
+       <p> Liked { likes } times</p>
+       <p> { 10 }</p>
+       <p> { "hello, Bwisa!" }</p>
+       <p> { [1,2,3,4,5,6,7,8] }</p>
+       <p> { Math.random() * 10 }</p>
+
+       <a href={ link } className="href">Google Site</a> */}
+     </div>
     </div>
+    </Router>
   );
 }
 
