@@ -18,13 +18,14 @@ function App() {
      <div className="content">
        {/* <Home /> */}
        <Switch>
-         <Route path="/">
+         <Route exact path="/">
            <Home />
          </Route>
-         <Route path="/create">
+         <Route exact path="/create">
            <Create />
          </Route>
        </Switch>
+       
        {/* <h1> { title }</h1>
        <p> Liked { likes } times</p>
        <p> { 10 }</p>

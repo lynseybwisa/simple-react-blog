@@ -12,9 +12,12 @@ const useFetch = (url) => {
     // const [error, setError] = useState(null); //store error so as to output to browser
 
     useEffect(() => {
+        // associate it with a feych then use it to abort that fetch
+        const abortCont = new AbortController();
+
         setTimeout(() => {
             //  fetch('http://localhost:8000/blogs')
-                 fetch(url)
+                 fetch(url, { signal: abortCont.signal })
                 .then(res => {
                     // console.log(res);
                      if(!res.ok){
@@ -31,10 +34,18 @@ const useFetch = (url) => {
                 })
                 .catch(err => {  //handling errors
                     // console.log(err.message); //catch error (connection error)
-                    setIsPending(false);
+                    if (err.name === 'AbortError'){
+                        console.log('fetch aborted')
+                    } else {
+                        setIsPending(false);
                     setError(err.message); //display error to user
+                    }
+                    
                 })
         }, 1000);
+
+        return () => abortCont.abort();
+
       }, [url]);
 
       return{ data, isPending, error };
