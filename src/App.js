@@ -3,6 +3,7 @@ import Home from './components/Landing Page/Home';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import React from 'react';
 import Create from './components/Blog/Create';
+import BlogDetails from './components/Blog/BlogDetails';
 
 function App() {
 
@@ -23,6 +24,9 @@ function App() {
          </Route>
          <Route exact path="/create">
            <Create />
+         </Route>
+         <Route exact path="/blogs/:id">
+           <BlogDetails />
          </Route>
        </Switch>
        

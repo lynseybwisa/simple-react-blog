@@ -6,13 +6,13 @@ const Navbar = () => {
         <nav className="navbar">
             <h1>The Bwisa Blog</h1>
             <div className="links">
-                <Link to="/" className="href">Home</Link>
-                <Link to="/create" className="href" style={{
+                <Link to="/">Home</Link>
+                <Link to="/create"  style={{
                     color: "white",
                     backgroundColor: "#f1356d",
                     borderRadius: "8px"
                 }}>Create Blog</Link>
-                <Link to="/exit" className="href">Exit</Link>
+                <Link to="/exit">Exit</Link>
             </div>
         </nav>
      );
