@@ -1,10 +1,11 @@
 // import { useEffect, useState } from "react";
 import { useEffect, useState } from "react";
 
-
-const useFetch = (url) => {
+//create a custome hook useFetch
+const useFetch = (url) => {  //pass url of the endpoint of the data trying to be fetched
 
     const [data, setData] = useState(null);
+    //create state for loading message
     const [isPending, setIsPending] = useState(true);
     const [error, setError] = useState(null); //store error so as to output to browser
     
@@ -49,6 +50,7 @@ const useFetch = (url) => {
 
       }, [url]);
 
+      //data return individual blog
       return{ data, isPending, error };
 }
 

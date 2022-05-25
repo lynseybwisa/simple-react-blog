@@ -50,6 +50,7 @@ const Home = () => {
         {/* <h2>Homepage</h2> */}
         {/* {blogs && <BlogList blogs = {blogs} title="All Blogs!" handleDelete={handleDelete}/>} */}
 
+        {/* only if isPending is true then loading will be output to the browser */}
         {isPending && <div>Loading.....</div>} {/*view loading message*/}
         {blogs && <BlogList blogs = {blogs} title="All Blogs!"/>}
         {error && <div> { error }</div> }
